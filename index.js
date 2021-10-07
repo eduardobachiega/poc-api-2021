@@ -10,6 +10,10 @@ app.get('/test', (req, res) => {
   res.send('API Working!')
 })
 
+app.post('/', function (req, res) {
+  res.send('Got a POST request')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
