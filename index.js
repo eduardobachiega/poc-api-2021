@@ -14,6 +14,14 @@ app.post('/', function (req, res) {
   res.send('Got a POST request')
 })
 
+app.get('/search/:query?', function(req, res){
+  var query = req.params.query;
+  db.smembers(query, function(err, vals){
+    if (err) return res.send(500);
+    res.send(vals);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
